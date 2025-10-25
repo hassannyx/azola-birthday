@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عيد ميلاد سعيد - Azola 🎂💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
+        /* General Styles */
         * {
             margin: 0;
             padding: 0;
@@ -14,7 +16,7 @@
         body {
             width: 100%;
             height: 100vh;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); /* Dark blue/purple gradient */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -24,25 +26,18 @@
         }
 
         body.celebrating {
-            background: linear-gradient(135deg, #0f3460 0%, #533483 50%, #1a1a2e 100%);
-            animation: celebrationLights 2s infinite alternate;
+            animation: celebrationLights 3s infinite alternate; /* Gentle light animation */
         }
 
         @keyframes celebrationLights {
             0% {
-                background: linear-gradient(135deg, #0f3460 0%, #533483 50%, #1a1a2e 100%);
-            }
-            25% {
-                background: linear-gradient(135deg, rgba(255, 0, 110, 0.1) 0%, #533483 50%, #1a1a2e 100%);
+                background: linear-gradient(135deg, rgba(255, 0, 110, 0.01) 0%, #16213e 50%, #1a1a2e 100%);
             }
             50% {
-                background: linear-gradient(135deg, #0f3460 0%, rgba(255, 190, 11, 0.1) 50%, #1a1a2e 100%);
-            }
-            75% {
-                background: linear-gradient(135deg, rgba(0, 245, 255, 0.1) 0%, #533483 50%, #1a1a2e 100%);
+                background: linear-gradient(135deg, #1a1a2e 0%, rgba(255, 190, 11, 0.01) 50%, #16213e 100%);
             }
             100% {
-                background: linear-gradient(135deg, #0f3460 0%, #533483 50%, #1a1a2e 100%);
+                background: linear-gradient(135deg, rgba(0, 245, 255, 0.01) 0%, #1a1a2e 50%, #16213e 100%);
             }
         }
 
@@ -56,134 +51,66 @@
             align-items: center;
         }
 
+        /* Cake Design - Inspired by the provided image */
         .cake-container {
             position: relative;
-            width: 400px;
-            height: 400px;
+            width: 300px;
+            height: 250px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 50px;
+            margin-bottom: 20px;
+            z-index: 5;
         }
 
-        /* الكعكة */
-        .cake {
-            position: relative;
-            width: 280px;
-            height: 280px;
+        .cake-base {
+            position: absolute;
+            bottom: 0;
+            width: 200px;
+            height: 100px;
+            background-color: #5D4037; /* Brown for cake */
+            border-radius: 50% / 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
             opacity: 0;
             animation: cakeAppear 1s ease-out forwards;
+            z-index: 5;
         }
 
         @keyframes cakeAppear {
-            0% {
-                opacity: 0;
-                transform: scale(0.5) translateY(50px);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
+            0% { opacity: 0; transform: scale(0.5) translateY(50px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        .cake-layer {
+        .cake-top {
             position: absolute;
-            width: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #d4a574 0%, #8b6f47 100%);
-            border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-        }
-
-        .cake-layer-1 {
-            bottom: 0;
-            height: 100px;
-            opacity: 0;
-            animation: layerSlide 0.6s ease-out forwards;
-        }
-
-        .cake-layer-2 {
-            bottom: 80px;
-            height: 90px;
-            opacity: 0;
-            animation: layerSlide 0.6s ease-out forwards;
-            animation-delay: 0.2s;
-        }
-
-        .cake-layer-3 {
-            bottom: 160px;
-            height: 80px;
-            opacity: 0;
-            animation: layerSlide 0.6s ease-out forwards;
-            animation-delay: 0.4s;
-        }
-
-        @keyframes layerSlide {
-            0% {
-                opacity: 0;
-                transform: translateX(-50%) translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(-50%) translateY(0);
-            }
-        }
-
-        /* الكريم على الكعكة */
-        .cake-frosting {
-            position: absolute;
-            width: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(180deg, #f5deb3 0%, #ffe4b5 50%, #f5deb3 100%);
-            border-radius: 50%;
-            opacity: 0;
-            animation: frostingAppear 0.8s ease-out forwards;
-            animation-delay: 0.6s;
-        }
-
-        .frosting-1 {
-            bottom: 95px;
-            width: 90%;
-            height: 25px;
-            box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .frosting-2 {
-            bottom: 175px;
-            width: 85%;
+            top: -10px;
+            width: 210px;
             height: 20px;
-            box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+            background-color: #F5DEB3; /* Cream color */
+            border-radius: 50%;
+            box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.1);
+            z-index: 6;
         }
 
-        .frosting-3 {
-            bottom: 245px;
-            width: 80%;
-            height: 18px;
-            box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+        .cake-drip {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background-color: #F5DEB3; /* Cream color */
+            z-index: 7;
+            clip-path: polygon(0 0, 100% 0, 100% 50%, 90% 60%, 80% 50%, 70% 65%, 60% 50%, 50% 70%, 40% 50%, 30% 60%, 20% 50%, 10% 65%, 0% 50%);
         }
-
-        @keyframes frostingAppear {
-            0% {
-                opacity: 0;
-                transform: translateX(-50%) scaleY(0);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(-50%) scaleY(1);
-            }
-        }
-
-        /* الشمعة */
+        
+        /* Candle Design */
         .candle-container {
             position: absolute;
-            top: 0;
+            top: -100px; /* Start high above */
             left: 50%;
             transform: translateX(-50%);
             opacity: 0;
-            animation: candleDescend 1.2s ease-out forwards;
-            animation-delay: 1.2s;
+            animation: candleDescend 1s ease-out 1s forwards; /* Descend after 1s */
             cursor: pointer;
             z-index: 10;
         }
@@ -191,35 +118,47 @@
         @keyframes candleDescend {
             0% {
                 opacity: 0;
-                transform: translateX(-50%) translateY(-100px);
+                transform: translateX(-50%) translateY(-150px);
             }
             100% {
                 opacity: 1;
-                transform: translateX(-50%) translateY(0);
+                transform: translateX(-50%) translateY(-100px); /* Position directly above the cake */
             }
         }
 
         .candle {
-            width: 30px;
-            height: 100px;
-            background: linear-gradient(90deg, #f5deb3 0%, #ffe4b5 50%, #f5deb3 100%);
-            border-radius: 20px;
+            width: 20px;
+            height: 80px;
+            background: linear-gradient(to top, #fffacd, #f0e68c); /* Yellowish white */
+            border-radius: 5px;
             position: relative;
-            box-shadow: inset -3px 0 8px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.4);
+            box-shadow: inset -2px 0 5px rgba(0, 0, 0, 0.2), 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .candle::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 8px;
+            background-color: #8B4513; /* Wick color */
+            border-radius: 2px;
         }
 
         .flame {
             position: absolute;
-            width: 25px;
-            height: 50px;
+            width: 18px;
+            height: 40px;
             background: linear-gradient(to top, #ff6b00, #ffd700, #ffff00);
             border-radius: 50% 50% 50% 0;
-            top: -40px;
+            top: -35px;
             left: 50%;
             transform: translateX(-50%);
             opacity: 0;
             animation: flameFlicker 0.3s ease-in-out infinite;
-            box-shadow: 0 0 20px rgba(255, 200, 0, 0.6), 0 0 40px rgba(255, 100, 0, 0.3);
+            box-shadow: 0 0 10px rgba(255, 200, 0, 0.5), 0 0 20px rgba(255, 100, 0, 0.2);
         }
 
         .flame.lit {
@@ -227,15 +166,11 @@
         }
 
         @keyframes flameFlicker {
-            0%, 100% {
-                transform: translateX(-50%) scaleY(1);
-            }
-            50% {
-                transform: translateX(-50%) scaleY(1.1);
-            }
+            0%, 100% { transform: translateX(-50%) scaleY(1); }
+            50% { transform: translateX(-50%) scaleY(1.1); }
         }
 
-        /* العنوان */
+        /* Title and Signature */
         .title {
             font-size: 3.5em;
             color: #ffb6c1;
@@ -244,20 +179,14 @@
             font-weight: bold;
             opacity: 0;
             animation: titleAppear 1s ease-out forwards;
+            font-family: 'Great Vibes', cursive; /* Elegant font */
         }
 
         @keyframes titleAppear {
-            0% {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* الرسالة والتوقيع */
         .signature {
             font-size: 1.5em;
             color: #ffb6c1;
@@ -266,54 +195,27 @@
             opacity: 0;
             animation: signatureAppear 1s ease-out forwards;
             animation-delay: 0.5s;
+            font-family: 'Dancing Script', cursive;
         }
 
         @keyframes signatureAppear {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* الأضواء */
-        .light {
-            position: fixed;
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0;
-        }
-
-        .light.active {
-            animation: lightPulse 3s ease-out forwards;
-        }
-
-        @keyframes lightPulse {
-            0% {
-                opacity: 0.4;
-                transform: scale(1);
-            }
-            100% {
-                opacity: 0;
-                transform: scale(1.5);
-            }
-        }
-
-        /* الرموز التعبيرية */
+        /* Emoji Rain */
         .emoji {
             position: fixed;
-            font-size: 3em;
+            font-size: 2.5em;
             pointer-events: none;
             z-index: 5;
+            animation: fall 3s linear forwards;
         }
 
         @keyframes fall {
             0% {
                 opacity: 1;
-                transform: translateY(0) rotate(0deg);
+                transform: translateY(-50px) rotate(0deg);
             }
             100% {
                 opacity: 0;
@@ -321,237 +223,156 @@
             }
         }
 
-        /* الظرف */
-        .envelope {
-            position: fixed;
-            bottom: 100px;
+        /* Envelope/Card Container - New Interactive Element */
+        .envelope-container {
+            position: absolute;
+            top: -100px; /* Start high above */
             left: 50%;
             transform: translateX(-50%);
-            width: 200px;
-            height: 120px;
-            background: white;
-            border: 3px solid #ffb6c1;
-            border-radius: 10px;
-            cursor: pointer;
+            width: 250px;
+            height: 150px;
             opacity: 0;
-            z-index: 15;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 10px 40px rgba(255, 182, 193, 0.4);
-            transition: transform 0.3s ease;
+            cursor: pointer;
+            z-index: 50;
+            transition: transform 1s ease-out;
+        }
+
+        .envelope-container.descend {
+            animation: envelopeDescend 1s ease-out 1.5s forwards; /* Descend after 1.5s */
+        }
+
+        @keyframes envelopeDescend {
+            0% { opacity: 0; transform: translateX(-50%) translateY(-100px); }
+            100% { opacity: 1; transform: translateX(-50%) translateY(150px); /* Settles below the cake */ }
+        }
+
+        .envelope {
+            width: 100%;
+            height: 100%;
+            background-color: #fff; /* White envelope */
+            border: 2px solid #ffc0cb;
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease;
+        }
+
+        .envelope.open {
+            transform: scale(1.5);
+        }
+
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background-color: #ffc0cb; /* Pink flap */
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            transform-origin: top;
+            transition: transform 0.5s ease;
+        }
+
+        .envelope.open .envelope-flap {
+            transform: rotateX(180deg);
+        }
+
+        /* Message Card Inside Envelope */
+        .card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.5);
+            width: 90%;
+            height: 90%;
+            background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
             pointer-events: none;
         }
 
-        .envelope:hover {
-            transform: translateX(-50%) scale(1.05);
-        }
-
-        .envelope-icon {
-            font-size: 3em;
-        }
-
-        @keyframes envelopeFloat {
-            0% {
-                opacity: 0;
-                transform: translateX(-50%) translateY(50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(-50%) translateY(0);
-            }
-        }
-
-        /* البطاقة */
-        .card {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 600px;
-            height: 80vh;
-            background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
-            border: 5px solid white;
-            border-radius: 20px;
-            padding: 40px;
-            z-index: 100;
-            overflow-y: auto;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .card.hidden {
-            display: none;
-        }
-
-        .card-title {
-            font-size: 2em;
-            color: #ff1493;
-            margin-bottom: 30px;
-            font-weight: bold;
+        .envelope.open .card {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            pointer-events: auto;
         }
 
         .card-message {
-            font-size: 1.15em;
-            line-height: 2;
+            font-size: 1em;
+            line-height: 1.6;
             color: #333;
-            margin-bottom: 30px;
             font-family: 'Georgia', serif;
             white-space: pre-wrap;
             word-wrap: break-word;
         }
 
         .card-signature {
-            font-size: 1.2em;
+            font-size: 1em;
             color: #ff1493;
-            margin-top: 30px;
+            margin-top: 10px;
             font-weight: bold;
+            font-family: 'Dancing Script', cursive;
         }
 
-        /* استجابة الشاشات الصغيرة */
+        /* Responsive Adjustments */
         @media (max-width: 768px) {
-            .title {
-                font-size: 2em;
-            }
-
-            .signature {
-                font-size: 1.2em;
-            }
-
-            .cake {
-                width: 180px;
-                height: 180px;
-            }
-
-            .card {
-                width: 95%;
-                height: 85vh;
-                padding: 20px;
-            }
-
-            .card-message {
-                font-size: 1em;
+            .title { font-size: 2em; }
+            .signature { font-size: 1.2em; }
+            .cake-base { width: 150px; height: 75px; }
+            .cake-top { width: 160px; }
+            .candle-container { transform: translateX(-50%) translateY(-70px); }
+            .candle { width: 15px; height: 60px; }
+            .flame { width: 15px; height: 30px; top: -25px; }
+            .envelope-container { width: 200px; height: 120px; }
+            @keyframes envelopeDescend {
+                0% { opacity: 0; transform: translateX(-50%) translateY(-100px); }
+                100% { opacity: 1; transform: translateX(-50%) translateY(100px); }
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="title">Happy Birthday</div>
+        <div class="title">Happy Birthday, Azola!</div>
 
         <div class="cake-container">
-            <div class="cake-container" id="cakeContainer">
-                <div class="candle-container" id="candleContainer">
-                    <div class="candle">
-                        <div class="flame" id="flame"></div>
-                    </div>
-                </div>
-                <div class="cake" id="cake">
-                    <div class="cake-layer cake-layer-1"></div>
-                    <div class="cake-layer cake-layer-2"></div>
-                    <div class="cake-layer cake-layer-3"></div>
-                    <div class="cake-frosting frosting-1"></div>
-                    <div class="cake-frosting frosting-2"></div>
-                    <div class="cake-frosting frosting-3"></div>
+            <div class="cake-base"></div>
+            <div class="cake-top"></div>
+            <div class="cake-drip"></div>
+            <div class="candle-container" id="candleContainer">
+                <div class="candle">
+                    <div class="flame" id="flame"></div>
                 </div>
             </div>
         </div>
 
         <div class="signature">
-            azola 🫂🎉<br>
-            <span style="font-size: 0.8em;">من حبك حسن</span>
-        </div>
-
-        <div class="envelope" id="envelope" style="opacity: 0; pointer-events: none;">
-            <div class="envelope-icon">💌</div>
+            Your dear Hassan 🫂🎉
         </div>
     </div>
 
-    <!-- البطاقة -->
-    <div class="card hidden" id="card">
-        <div class="card-title">💕 رسالة الحب 💕</div>
-        <div class="card-message" id="cardMessage"></div>
-        <div class="card-signature">الموقر زوجك حسن 💌</div>
+    <!-- Envelope/Message Card -->
+    <div class="envelope-container" id="envelopeContainer">
+        <div class="envelope" id="envelope">
+            <div class="envelope-flap"></div>
+            <div class="card" id="card">
+                <div class="card-message" id="cardMessage"></div>
+                <div class="card-signature">حسنك المحب 💌</div>
+            </div>
+        </div>
     </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="romantic_piano.mp3" type="audio/mpeg">
+    </audio>
 
     <script>
         let candleLit = false;
-        let musicPlaying = false;
-        let emojiRaining = false;
-        let audioContext = null;
-        let backgroundMusic = null;
 
-        // تهيئة AudioContext
-        function initAudioContext() {
-            if (!audioContext) {
-                audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            }
-        }
-
-        // دالة لتشغيل موسيقى Romantic Piano
-        function playRomanticPiano() {
-            if (musicPlaying) return;
-            musicPlaying = true;
-            initAudioContext();
-
-            // نغمات موسيقى Romantic Piano بسيطة
-            const notes = [
-                { freq: 261.63, duration: 0.6 },   // C4
-                { freq: 293.66, duration: 0.6 },   // D4
-                { freq: 329.63, duration: 0.6 },   // E4
-                { freq: 349.23, duration: 0.6 },   // F4
-                { freq: 392.00, duration: 0.8 },   // G4
-                { freq: 349.23, duration: 0.6 },   // F4
-                { freq: 329.63, duration: 0.6 },   // E4
-                { freq: 293.66, duration: 0.6 },   // D4
-                { freq: 261.63, duration: 0.8 },   // C4
-                { freq: 293.66, duration: 0.6 },   // D4
-                { freq: 329.63, duration: 0.6 },   // E4
-                { freq: 349.23, duration: 0.6 },   // F4
-                { freq: 392.00, duration: 0.8 },   // G4
-                { freq: 440.00, duration: 0.6 },   // A4
-                { freq: 392.00, duration: 0.6 },   // G4
-                { freq: 349.23, duration: 0.6 },   // F4
-                { freq: 329.63, duration: 1.2 },   // E4
-            ];
-
-            function playSequence() {
-                let currentTime = audioContext.currentTime;
-
-                notes.forEach(note => {
-                    const oscillator = audioContext.createOscillator();
-                    const gainNode = audioContext.createGain();
-
-                    oscillator.connect(gainNode);
-                    gainNode.connect(audioContext.destination);
-
-                    oscillator.frequency.value = note.freq;
-                    oscillator.type = 'sine';
-
-                    gainNode.gain.setValueAtTime(0.2, currentTime);
-                    gainNode.gain.exponentialRampToValueAtTime(0.01, currentTime + note.duration);
-
-                    oscillator.start(currentTime);
-                    oscillator.stop(currentTime + note.duration);
-
-                    currentTime += note.duration;
-                });
-
-                // تشغيل الموسيقى بشكل متكرر
-                setTimeout(() => {
-                    playSequence();
-                }, currentTime * 1000 - audioContext.currentTime * 1000);
-            }
-
-            playSequence();
-        }
-
-        // دالة لإضاءة الشمعة
+        // Function to light the candle and trigger effects
         function lightCandle() {
             if (candleLit) return;
             candleLit = true;
@@ -559,62 +380,39 @@
             const flame = document.getElementById('flame');
             flame.classList.add('lit');
 
-            // تشغيل الموسيقى بعد 5 ثوانٍ
+            // Play music after 5 seconds
             setTimeout(() => {
-                playRomanticPiano();
+                const music = document.getElementById('backgroundMusic');
+                // Check if the music file is loaded and ready
+                if (music.readyState >= 2) {
+                    music.play().catch(error => {
+                        console.error("Autoplay failed:", error);
+                        // Fallback: Ask user to interact to play music if autoplay is blocked
+                        // For this task, we rely on the fact that the user already interacted
+                    });
+                } else {
+                    music.oncanplaythrough = () => {
+                        music.play().catch(error => console.error("Autoplay failed after load:", error));
+                    };
+                }
             }, 5000);
 
-            // تفعيل الأضواء الاحتفالية
+            // Activate subtle celebration lights
             document.body.classList.add('celebrating');
 
-            // إنشاء الأضواء
-            createLights();
-
-            // بدء سقوط الرموز التعبيرية بعد 1.5 ثانية
+            // Start emoji rain after 1.5 seconds
             setTimeout(() => {
                 startEmojiRain();
             }, 1500);
 
-            // إظهار الظرف والرسالة بعد 5 ثوانٍ
+            // Start envelope descent after 1.5 seconds
             setTimeout(() => {
-                const envelope = document.getElementById('envelope');
-                envelope.style.opacity = '1';
-                envelope.style.pointerEvents = 'auto';
-                envelope.style.animation = 'envelopeFloat 1s ease-out forwards';
-                
-                // إظهار الرسالة تلقائياً
-                showCard();
-            }, 5000);
+                document.getElementById('envelopeContainer').classList.add('descend');
+            }, 1500);
         }
 
-        // دالة لإنشاء الأضواء الاحتفالية (خفيفة)
-        function createLights() {
-            const lightColors = ['#ff006e', '#ffbe0b', '#00f5ff', '#fb5607', '#8338ec'];
-            
-            for (let i = 0; i < 8; i++) {
-                const light = document.createElement('div');
-                light.className = 'light active';
-                light.style.width = (30 + Math.random() * 50) + 'px';
-                light.style.height = light.style.width;
-                light.style.left = Math.random() * 100 + '%';
-                light.style.top = Math.random() * 100 + '%';
-                light.style.backgroundColor = lightColors[Math.floor(Math.random() * lightColors.length)];
-                light.style.boxShadow = `0 0 20px ${light.style.backgroundColor}`;
-                light.style.opacity = '0.3';
-                
-                document.body.appendChild(light);
-                
-                setTimeout(() => {
-                    light.remove();
-                }, 3000);
-            }
-        }
-
-        // دالة لبدء سقوط الرموز التعبيرية
+        // Function to start emoji rain
         function startEmojiRain() {
-            if (emojiRaining) return;
-            emojiRaining = true;
-
             const emojis = ['🎉', '🎊', '🎂', '🎀', '🎁', '🎇', '🎆', '🫂'];
 
             function createEmoji() {
@@ -623,7 +421,7 @@
                 emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
                 emoji.style.left = Math.random() * 100 + '%';
                 emoji.style.top = '-50px';
-                emoji.style.animation = `fall ${2 + Math.random() * 1.5}s ease-in forwards`;
+                emoji.style.animation = `fall ${2 + Math.random() * 1.5}s linear forwards`;
                 
                 document.body.appendChild(emoji);
                 
@@ -632,30 +430,18 @@
                 }, 3500);
             }
 
-            // إنشاء الرموز بشكل مستمر
-            const emojiInterval = setInterval(() => {
+            // Create emojis continuously
+            setInterval(() => {
                 if (candleLit) {
                     createEmoji();
-                } else {
-                    clearInterval(emojiInterval);
-                }
+                } 
             }, 300);
         }
 
-        // دالة لفتح البطاقة
-        function openCard() {
-            if (!candleLit) {
-                alert('يرجى إضاءة الشمعة أولاً! 🕯️');
-                return;
-            }
-            const card = document.getElementById('card');
-            card.classList.remove('hidden');
-        }
-
-        // دالة لإظهار البطاقة تلقائياً
-        function showCard() {
-            const card = document.getElementById('card');
-            const message = `ميلادُكِ فلكٌ يحدثُ مرّةً،
+        // Function to open the envelope
+        function openEnvelope() {
+            const envelope = document.getElementById('envelope');
+            const messageText = `ميلادُكِ فلكٌ يحدثُ مرّةً،
 وفيه خُلقتِ أجملَ امرأةٍ،
 ميلادُكِ يومٌ، وبعينَيَّ سنةٌ،
 وما غيرُكِ في يومِ ميلادِكِ حسنةٌ.
@@ -665,22 +451,15 @@
 وإنّي إذا أهدى لكِ غيري وردةً،
 سأهديكِ قلبًا، أنتِ فيهِ وريدُه.`;
             
-            document.getElementById('cardMessage').textContent = message;
-            card.classList.remove('hidden');
+            document.getElementById('cardMessage').textContent = messageText;
+            envelope.classList.add('open');
         }
 
-        // إضافة حدث الضغط على الشمعة
+        // Add click event to candle
         document.getElementById('candleContainer').addEventListener('click', lightCandle);
-
-        // إضافة حدث الضغط على الظرف
-        document.getElementById('envelope').addEventListener('click', openCard);
-
-        // إغلاق البطاقة عند الضغط خارجها
-        document.getElementById('card').addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.classList.add('hidden');
-            }
-        });
+        
+        // Add click event to envelope
+        document.getElementById('envelopeContainer').addEventListener('click', openEnvelope);
     </script>
 </body>
 </html>
